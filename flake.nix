@@ -43,7 +43,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.oessaid = import ./home.nix;
+            home-manager.users.oessaid = import ./home;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
