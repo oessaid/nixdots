@@ -10,6 +10,7 @@
     ./shells
     ./programs
     ./hyprland
+    ./multiplexers
   ];
 
   home.username = "oessaid";
