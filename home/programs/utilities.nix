@@ -45,5 +45,7 @@
     hwinfo
     pciutils
     glxinfo
+
+    pavucontrol
   ];
 }

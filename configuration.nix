@@ -85,6 +85,7 @@
 
   hardware.keyboard.qmk.enable = true;
 
+  programs.hyprland.enable = true;
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
@@ -128,6 +129,14 @@
     #media-session.enable = true;
   };
 
+  # Sound/Bluetooth
+  hardware.bluetooth.settings = {
+    General = {
+      Enable = "Source,Sink,Media,Socket";
+    };
+  };
+  services.blueman.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -140,7 +149,6 @@
   nix.settings.auto-optimise-store = true;
 
   programs.zsh.enable = true;
-  # programs.hyprland.enable = true;
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.oessaid = {
     isNormalUser = true;
@@ -149,8 +157,6 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
-      neovim
-      zsh
     #  thunderbird
     ];
   };
@@ -179,24 +185,19 @@
   };
 
 
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Flakes clones its dependencies through the git command,
     # so git must be installed first
     git
-    vim
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     curl
   ];
 
   # Set the default editor to vim
   environment.variables.EDITOR = "vim";
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

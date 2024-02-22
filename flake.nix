@@ -13,7 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland"; 
+    hyprland = { 
+      url = "github:hyprwm/Hyprland"; 
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { 
@@ -43,7 +47,11 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.oessaid = import ./home;
+            home-manager.users.oessaid = {
+              imports = [
+                ./home
+              ];
+            };
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
