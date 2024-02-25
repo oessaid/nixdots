@@ -1,4 +1,16 @@
 { config, pkgs, lib, ... }:
+let tmux-status-theme = pkgs.tmuxPlugins.mkTmuxPlugin
+  {
+    pluginName = "tmux-status-theme";
+    version = "unstable-2024-02-25";
+    src = pkgs.fetchFromGitHub {
+      owner = "niksingh710";
+      repo = "minimal-tmux-status";
+      rev = "5183698f30c521fdf890d287e3ba2f81ea4e0d1c";
+      sha256 = "sha256-BrlMV4w1AsjLTjwKQXuOGRPy8QFsS4JtFtGFRUluQ50=";
+    };
+  };
+in
 {
   programs.tmux = {
     enable = true;
@@ -12,8 +24,11 @@
     baseIndex = 1;
     disableConfirmationPrompt = true;
     plugins = with pkgs; [
-      tmuxPlugins.gruvbox
-      tmuxPlugins.prefix-highlight
+      {
+        plugin = tmux-status-theme;
+	extraConfig = ''
+	'';
+      }
       {
         plugin = tmuxPlugins.resurrect;
 	extraConfig = ''
