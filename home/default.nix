@@ -6,6 +6,7 @@
 
 {
   imports = [
+    ./editors
     ./terminals
     ./shells
     ./programs
