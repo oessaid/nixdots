@@ -1,19 +1,21 @@
 { config, pkgs, lib, ... }:
-let tmux-status-theme = pkgs.tmuxPlugins.mkTmuxPlugin
-  {
-    pluginName = "tmux-status-theme";
-    version = "unstable-2024-02-25";
-    src = pkgs.fetchFromGitHub {
-      owner = "niksingh710";
-      repo = "minimal-tmux-status";
-      rev = "5183698f30c521fdf890d287e3ba2f81ea4e0d1c";
-      sha256 = "sha256-BrlMV4w1AsjLTjwKQXuOGRPy8QFsS4JtFtGFRUluQ50=";
+let 
+  tmux-status-theme = pkgs.tmuxPlugins.mkTmuxPlugin
+    {
+      pluginName = "minimal";
+      version = "unstable-2024-02-25";
+      src = pkgs.fetchFromGitHub {
+        owner = "niksingh710";
+        repo = "minimal-tmux-status";
+        rev = "5183698f30c521fdf890d287e3ba2f81ea4e0d1c";
+	sha256 = "sha256-BrlMV4w1AsjLTjwKQXuOGRPy8QFsS4JtFtGFRUluQ50=";
+      };
     };
-  };
 in
 {
   programs.tmux = {
     enable = true;
+    sensibleOnTop = false;
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "tmux-256color";
     prefix = "C-Space";
@@ -27,15 +29,18 @@ in
       {
         plugin = tmux-status-theme;
 	extraConfig = ''
+          # To add or remove extra text in status bar
+          set -g @minimal-tmux-status-right-extra ""
+          set -g @minimal-tmux-status-left-extra ""
 	'';
       }
       {
         plugin = tmuxPlugins.resurrect;
-	extraConfig = ''
-    	  set -g @resurrect-strategy-vim 'session'
-    	  set -g @resurrect-strategy-nvim 'session'
-    	  set -g @resurrect-capture-pane-contents 'on'
-	'';
+        extraConfig = ''
+          set -g @resurrect-strategy-vim 'session'
+          set -g @resurrect-strategy-nvim 'session'
+          set -g @resurrect-capture-pane-contents 'on'
+        '';
       }
       {
         plugin = tmuxPlugins.continuum;
@@ -78,6 +83,9 @@ in
       
       # Renumber all windows
       bind R move-window -r
+
+      # Easier reload of config
+      bind r source-file ~/.config/tmux/tmux.conf
     '';
   };
 }
