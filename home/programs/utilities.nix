@@ -1,16 +1,19 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     neofetch
     nnn # terminal file manager
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
     jq # A lightweight and flexible command-line JSON processor
     eza # A modern replacement for ‘ls’
     fzf # A command-line fuzzy finder
-    bottom  # replacement of htop/nmon
+    bottom # replacement of htop/nmon
 
     # misc
     cowsay

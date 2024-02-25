@@ -1,7 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 # This file is an example of a Nix module. The definition is actually a Nix
 # function. It has 5 automatically generated, automatically injected, and
 # declaration-free parameters provided by the module system:
@@ -12,20 +11,21 @@
 # - modulesPath [NixOS only]: a path to `nixpkgs/nixos/modules`, used to import
 #    additional NixOS modules and can be found in most auto-generated
 #    `hardware-configuration.nix` files.
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader = {
     systemd-boot.enable = false; # disable systemd-boot
     grub = {
-      enable = true; 
+      enable = true;
       efiSupport = true;
       device = "nodev";
       useOSProber = true;
@@ -72,7 +72,7 @@
     driSupport = true;
     driSupport32Bit = true;
   };
-  
+
   # GPU settings
   hardware.nvidia = {
     modesetting.enable = true;
@@ -89,7 +89,7 @@
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
-    
+
     # Load nvidia driver for Xorg and Wayland.
     videoDrivers = ["nvidia"];
 
@@ -107,7 +107,6 @@
       variant = "";
     };
   };
-
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -153,11 +152,11 @@
   users.users.oessaid = {
     isNormalUser = true;
     description = "Omar Essaid";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = ["networkmanager" "wheel" "video"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -166,7 +165,7 @@
 
   nix.settings = {
     # Enable the Flakes feature and the accompanying new nix command-line tool
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = ["nix-command" "flakes"];
 
     # Cache setup
     # given the users in this list the right to specify additional substituters via:
@@ -183,7 +182,6 @@
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
   };
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -225,5 +223,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

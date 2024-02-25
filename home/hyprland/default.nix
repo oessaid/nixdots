@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -12,7 +14,7 @@
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
         "__GLL_VRR_ALLOWED,1"
-	"XDG_CURRENT_DESKTOP=Hyprland"
+        "XDG_CURRENT_DESKTOP=Hyprland"
         "XDG_SESSION_TYPE=wayland"
         "XDG_SESSION_DESKTOP=Hyprland"
       ];
@@ -26,7 +28,7 @@
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-	"col.active_border" = "rgba(88888888)";
+        "col.active_border" = "rgba(88888888)";
         "col.inactive_border" = "rgba(00000088)";
         layout = "dwindle";
         resize_on_border = true;
@@ -74,7 +76,7 @@
         "$mod, F, exec, firefox"
         "$mod, Q, killactive"
 
-	"$mod, h, movefocus, l"
+        "$mod, h, movefocus, l"
         "$mod, j, movefocus, d"
         "$mod, k, movefocus, u"
         "$mod, l, movefocus, r"

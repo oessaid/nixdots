@@ -1,12 +1,18 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
 
     ./lsp.nix
     ./lsp-servers.nix
     ./keymaps.nix
+    ./lualine.nix
+    ./tree.nix
   ];
 
   programs.nixvim = {
@@ -27,27 +33,24 @@
       nix.enable = true;
       luasnip.enable = true;
       rust-tools.enable = true;
-
-      neo-tree = {
+      telescope = {
         enable = true;
-        autoCleanAfterSessionRestore = true;
-        closeIfLastWindow = true;
-        window.position = "left";
-        filesystem = {
-          followCurrentFile.enabled = false;
-          filteredItems = {
-            hideHidden = false;
-            hideDotfiles = false;
-            forceVisibleInEmptyFolder = true;
-            hideGitignored = false;
-          };
+        keymapsSilent = true;
+        keymaps = {
+        };
+        extensions = {
+          file_browser.enable = true;
+          fzf-native.enable = true;
+          ui-select.enable = true;
         };
       };
-
+      treesitter = {
+        enable = true;
+        nixGrammars = true;
+        folding = true;
+      };
     };
     extraPlugins = with pkgs.vimPlugins; [
-      lualine-nvim
-      lualine-lsp-progress
     ];
     extraConfigLua = ''
     '';

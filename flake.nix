@@ -13,33 +13,32 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = { 
-      url = "github:hyprwm/Hyprland"; 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = { 
-      url = "github:nix-community/nixvim"; 
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
-  outputs = { 
-    self, 
-    nixpkgs, 
-    nixpkgs-stable, 
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-stable,
     home-manager,
     hyprland,
     nixvim,
-    ... 
-  }@inputs: {
+    ...
+  } @ inputs: {
     nixosConfigurations = {
       homenix = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
 
         # Passes the non-default nixpkgs instances to other nix modules
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
 
         modules = [
           # Import the previous configuration.nix we used,
@@ -47,8 +46,8 @@
           ./configuration.nix
 
           # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically 
-	  # when executing `nixos-rebuild switch`
+          # so that home-manager configuration will be deployed automatically
+          # when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -58,7 +57,7 @@
                 ./home
               ];
             };
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {inherit inputs;};
           }
         ];
       };

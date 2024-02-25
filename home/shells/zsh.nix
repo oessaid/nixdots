@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -23,7 +25,7 @@
     shellAliases = {
       vi = "nvim";
       vim = "nvim";
-      ll="exa -a --color=always --octal-permissions --git --group-directories-first --classify --long";
+      ll = "exa -a --color=always --octal-permissions --git --group-directories-first --classify --long";
     };
   };
 }

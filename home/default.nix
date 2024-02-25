@@ -1,10 +1,9 @@
-{ config,
-  pkgs, 
-  pkgs-stable, 
-  ... 
-}:
-
 {
+  config,
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
   imports = [
     ./editors
     ./terminals

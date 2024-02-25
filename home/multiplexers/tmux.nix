@@ -1,6 +1,11 @@
-{ config, pkgs, lib, ... }:
-let 
-  tmux-status-theme = pkgs.tmuxPlugins.mkTmuxPlugin
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  tmux-status-theme =
+    pkgs.tmuxPlugins.mkTmuxPlugin
     {
       pluginName = "minimal";
       version = "unstable-2024-02-25";
@@ -8,11 +13,10 @@ let
         owner = "niksingh710";
         repo = "minimal-tmux-status";
         rev = "5183698f30c521fdf890d287e3ba2f81ea4e0d1c";
-	sha256 = "sha256-BrlMV4w1AsjLTjwKQXuOGRPy8QFsS4JtFtGFRUluQ50=";
+        sha256 = "sha256-BrlMV4w1AsjLTjwKQXuOGRPy8QFsS4JtFtGFRUluQ50=";
       };
     };
-in
-{
+in {
   programs.tmux = {
     enable = true;
     sensibleOnTop = false;
@@ -28,11 +32,11 @@ in
     plugins = with pkgs; [
       {
         plugin = tmux-status-theme;
-	extraConfig = ''
+        extraConfig = ''
           # To add or remove extra text in status bar
           set -g @minimal-tmux-status-right-extra ""
           set -g @minimal-tmux-status-left-extra ""
-	'';
+        '';
       }
       {
         plugin = tmuxPlugins.resurrect;
@@ -55,32 +59,32 @@ in
       set -g set-clipboard external
       set -g focus-events on
       set-option -g renumber-windows on
-      
+
       # split panes using | and - (and stay in the current directory)
       bind \\ split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
       unbind '"'
       unbind %
-      
+
       # Create a new window in the current directory
       bind c new-window -c "#{pane_current_path}"
-      
+
       # Vim style pane selection
       bind h select-pane -L
-      bind j select-pane -D 
+      bind j select-pane -D
       bind k select-pane -U
       bind l select-pane -R
-      
+
       # Easier pane resizing
       bind-key J resize-pane -D 10
       bind-key K resize-pane -U 10
       bind-key H resize-pane -L 10
       bind-key L resize-pane -R 10
-      
+
       # Moving between windows
       bind i next-window
       bind u previous-window
-      
+
       # Renumber all windows
       bind R move-window -r
 
