@@ -33,6 +33,9 @@ in {
       {
         plugin = tmux-status-theme;
         extraConfig = ''
+          set -g @minimal-tmux-indicator-str "  [tmux]  "
+          # false will make it visible for the current tab only
+          set -g @minimal-tmux-show-expanded-icons-for-all-tabs true
           # To add or remove extra text in status bar
           set -g @minimal-tmux-status-right-extra ""
           set -g @minimal-tmux-status-left-extra ""
