@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./waybar.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -113,7 +117,6 @@
     };
     extraConfig = ''
       monitor=desc:LG Electronics LG TV SSCR2 0x01010101,3840x2160@120,auto,1.0,bitdepth,10,vrr,2
-
     '';
   };
 }

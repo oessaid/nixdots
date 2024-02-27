@@ -26,7 +26,6 @@
     wev
 
     # WM utilities
-    waybar
     wofi
     dunst
 
