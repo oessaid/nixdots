@@ -6,5 +6,6 @@
   imports = [
     ./utilities.nix
     ./git.nix
+    ./zathura.nix
   ];
 }

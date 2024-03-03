@@ -4,7 +4,6 @@ in {
   programs.alacritty = {
     enable = true;
     # package = pkgs-stable.alacritty;
-    # custom settings
     settings = {
       env.TERM = "xterm-256color";
       scrolling.history = 10000;
