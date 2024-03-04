@@ -51,13 +51,11 @@ in {
           "tray"
           "privacy"
           "custom/separator#line"
-          "wireplumber"
-          "custom/separator#line"
           "network#speed"
           "custom/separator#line"
-          "clock"
+          "wireplumber"
           "custom/separator#line"
-          "battery"
+          "clock"
           "custom/separator#line"
           "custom/power"
         ];
@@ -82,7 +80,7 @@ in {
         "custom/app#term" = {
           "format" = "{}  ";
           "tooltip" = false;
-          "on-click" = "kitty";
+          "on-click" = "alacritty";
         };
 
         "hyprland/workspaces" = {
@@ -114,40 +112,6 @@ in {
             "default" = "󰝥";
             "special" = "󰦥";
           };
-        };
-
-        "battery" = {
-          "align" = 0;
-          "rotate" = 0;
-          "full-at" = 100;
-          "design-capacity" = false;
-          "states" = {
-            "good" = 95;
-            "warning" = 30;
-            "critical" = 15;
-          };
-          "format" = "{icon} {capacity}%";
-          "format-charging" = "{capacity}%";
-          "format-plugged" = "󱘖 {capacity}%";
-          "format-alt-click" = "click";
-          "format-full" = "{icon} Full";
-          "format-alt" = "{icon} {time}";
-          "format-icons" = [
-            "󰂎"
-            "󰁺"
-            "󰁻"
-            "󰁼"
-            "󰁽"
-            "󰁾"
-            "󰁿"
-            "󰂀"
-            "󰂁"
-            "󰂂"
-            "󰁹"
-          ];
-          "format-time" = "{H}h {M}min";
-          "tooltip" = true;
-          "tooltip-format" = "{timeTo} {power}w";
         };
 
         "bluetooth" = {

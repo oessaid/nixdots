@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./waybar
+    ./hyprpaper.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -27,6 +28,7 @@
       ];
       exec = [
         "pkill waybar & sleep 0.5 && waybar"
+        "hyprpaper"
       ];
       general = {
         gaps_in = 5;
