@@ -105,6 +105,39 @@ in {
       ''
         vim.cmd('colorscheme github_dark_high_contrast')
         -- vim.cmd('colorscheme github_dark_default')
+
+        vim.fn.sign_define("DiagnosticSignError", {
+          texthl = "DiagnosticSignError",
+          text = "",
+          numhl = "DiagnosticSignError",
+        })
+        vim.fn.sign_define("DiagnosticSignWarn", {
+          texthl = "DiagnosticSignWarn",
+          text = "",
+          numhl = "DiagnosticSignWarn",
+        })
+        vim.fn.sign_define("DiagnosticSignInfo", {
+          texthl = "DiagnosticSignInfo",
+          text = "",
+          numhl = "DiagnosticSignInfo",
+        })
+        vim.fn.sign_define("DiagnosticSignHint", {
+          texthl = "DiagnosticSignHint",
+          text = "",
+          numhl = "DiagnosticSignHint",
+        })
+
+        vim.diagnostic.config({
+          underline = true,
+          virtual_text = {
+            prefix = "",
+            spacing = 2,
+            source = "always", -- always | if_many
+          },
+          signs = true,
+          update_in_insert = false,
+          severity_sort = true,
+        })
       '';
   };
 }

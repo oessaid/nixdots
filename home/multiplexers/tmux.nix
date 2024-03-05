@@ -61,6 +61,8 @@ in {
     extraConfig = ''
       # set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:Tc"
+      set-option -ga terminal-features ",*:usstyle"
+      set-option -a terminal-overrides ",alacritty:RGB"
 
       set -g set-clipboard external
       set -g focus-events on

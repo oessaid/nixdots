@@ -12,13 +12,22 @@
         enable = true;
         lspServersToEnable = "all";
       };
-      lsp-lines = {
-        enable = true;
-        currentLine = true;
-      };
 
       lspkind.enable = true;
       lspsaga.enable = true;
+
+      trouble = {
+        enable = true;
+        extraOptions = {
+          signs = {
+            error = "";
+            warning = "";
+            hint = "";
+            information = "";
+            other = "";
+          };
+        };
+      };
 
       rust-tools.enable = true;
       crates-nvim.enable = true;
@@ -28,8 +37,8 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>?";
-        action = "<cmd>lua require('lsp_lines').toggle<cr>";
+        key = "<leader>s?";
+        action = ":TroubleToggle document_diagnostics<CR>";
       }
     ];
   };

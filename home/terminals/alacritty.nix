@@ -5,7 +5,7 @@ in {
     enable = true;
     # package = pkgs-stable.alacritty;
     settings = {
-      env.TERM = "xterm-256color";
+      # env.TERM = "xterm-256color";
       scrolling.history = 10000;
       font = {
         size = 12.0;
