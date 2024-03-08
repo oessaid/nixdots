@@ -31,12 +31,20 @@ in {
     enable = true;
     globals.mapleader = " ";
     clipboard.providers.xclip.enable = true;
-    # colorschemes = {
-    #   base16 = {
-    #     enable = true;
-    #     colorscheme = "gruvbox-material-dark-hard";
-    #   };
-    # };
+    colorschemes = {
+      base16 = {
+        enable = true;
+        # colorscheme = "gruvbox-material-dark-hard";
+        colorscheme = "gruvbox-dark-hard";
+      };
+      # gruvbox = {
+      #   enable = false;
+      #   settings = {
+      #     invert_selection = true;
+      #     contrast = "hard";
+      #   };
+      # };
+    };
     options = {
       termguicolors = true;
       showmatch = false;
@@ -96,14 +104,14 @@ in {
       };
     };
     extraPlugins = [
-      github-nvim-theme
+      # github-nvim-theme
     ];
     extraConfigLua =
       /*
       lua
       */
       ''
-        vim.cmd('colorscheme github_dark_high_contrast')
+        -- vim.cmd('colorscheme github_dark_high_contrast')
         -- vim.cmd('colorscheme github_dark_default')
 
         vim.fn.sign_define("DiagnosticSignError", {
