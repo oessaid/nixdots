@@ -12,7 +12,7 @@
     #   line_break.disabled = true;
     # };
 
-    # settings = pkgs.lib.importTOML ./gruvbox-rainbow.toml;
-    settings = pkgs.lib.importTOML ./pure.toml;
+    settings = pkgs.lib.importTOML ./gruvbox-rainbow.toml;
+    # settings = pkgs.lib.importTOML ./pure.toml;
   };
 }
