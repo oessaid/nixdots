@@ -1,14 +1,21 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](color_orange)\
+[](color_blue)\
 $os\
-[](bg:color_yellow fg:color_orange)\
-$directory\
-[](fg:color_yellow bg:color_aqua)\
+[](fg:color_blue bg:color_aqua)\
 $git_branch\
 $git_status\
-[](fg:color_aqua bg:color_blue)\
+[](fg:color_aqua bg:color_bg1)\
+[ ](fg:color_bg1)\
+$linebreak\
+$directory\
+$character"""
+
+right_format = """
+[](color_bg1)\
+$direnv\
+[](fg:color_bg1 bg:color_blue)\
 $c\
 $rust\
 $golang\
@@ -20,10 +27,8 @@ $haskell\
 $python\
 [](fg:color_blue bg:color_bg3)\
 $docker_context\
-[](fg:color_bg3 bg:color_bg1)\
-$direnv\
-[ ](fg:color_bg1)\
-$line_break$character"""
+[ ](fg:color_bg3)\
+"""
 
 palette = 'gruvbox_dark'
 
@@ -41,7 +46,7 @@ color_yellow = '#d79921'
 
 [os]
 disabled = false
-style = "bg:color_orange fg:color_fg0"
+style = "bg:color_blue fg:color_fg0"
 
 [os.symbols]
 Alpaquita = " "
@@ -91,7 +96,8 @@ style_root = "bg:color_orange fg:color_fg0"
 format = '[ $user ]($style)'
 
 [directory]
-style = "fg:color_fg0 bg:color_yellow"
+# style = "fg:color_fg0 bg:color_yellow"
+style = "fg:color_fg0"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
