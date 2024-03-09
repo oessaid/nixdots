@@ -44,7 +44,7 @@
     ltrace # library call monitoring
     lsof # list open files
 
-    xclip
+    wl-clipboard
     hwinfo
     pciutils
     glxinfo

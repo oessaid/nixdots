@@ -30,7 +30,10 @@ in {
   programs.nixvim = {
     enable = true;
     globals.mapleader = " ";
-    clipboard.providers.xclip.enable = true;
+    clipboard = {
+      providers.wl-copy.enable = true;
+      register = "unnamedplus";
+    };
     colorschemes = {
       base16 = {
         enable = true;
@@ -51,7 +54,6 @@ in {
       mouse = "a";
       incsearch = true;
       backup = false; # creates a backup file
-      clipboard = "unnamedplus"; # allows neovim to access the system clipboard
       cmdheight = 1; # space in the neovim command line for displaying messages
       colorcolumn = "99999"; # fixes indentline for now
       conceallevel = 0; # so that `` is visible in markdown files

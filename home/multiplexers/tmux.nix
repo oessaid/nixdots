@@ -64,7 +64,7 @@ in {
       set-option -ga terminal-features ",*:usstyle"
       set-option -a terminal-overrides ",alacritty:RGB"
 
-      set -g set-clipboard external
+      set -g set-clipboard on
       set -g focus-events on
       set-option -g renumber-windows on
 
