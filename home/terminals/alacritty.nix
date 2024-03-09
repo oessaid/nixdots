@@ -8,7 +8,7 @@ in {
       # env.TERM = "xterm-256color";
       scrolling.history = 10000;
       font = {
-        size = 13.0;
+        size = 12.5;
         normal.family = font;
         bold.family = font;
         italic.family = font;

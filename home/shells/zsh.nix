@@ -13,7 +13,7 @@
     history = {
       expireDuplicatesFirst = true;
       ignoreAllDups = true;
-      share = true;
+      share = false;
     };
     syntaxHighlighting = {
       enable = true;

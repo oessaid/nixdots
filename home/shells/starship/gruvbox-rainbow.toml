@@ -7,10 +7,10 @@ $os\
 $git_branch\
 $git_status\
 [](fg:color_aqua bg:color_bg1)\
-[ ](fg:color_bg1)\
-$linebreak\
 $directory\
-$character"""
+[](fg:color_bg1)\
+$character
+"""
 
 right_format = """
 [](color_bg1)\
@@ -26,7 +26,7 @@ $kotlin\
 $haskell\
 $python\
 [](fg:color_blue bg:color_bg3)\
-$docker_context\
+$cmd_duration\
 [ ](fg:color_bg3)\
 """
 
@@ -97,8 +97,9 @@ format = '[ $user ]($style)'
 
 [directory]
 # style = "fg:color_fg0 bg:color_yellow"
-style = "fg:color_fg0"
-format = "[ $path ]($style)"
+style = "bg:color_bg1"
+format = "[ $path]($style)"
+truncate_to_repo = false
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -188,10 +189,16 @@ vimcmd_visual_symbol = '[](bold fg:color_yellow)'
 
 [direnv]
 disabled = false
-symbol = 'direnv'
-allowed_msg = ' '
+# symbol = 'direnv: '
+symbol = ''
+allowed_msg = ''
 denied_msg = ''
 loaded_msg = '󱓻'
 unloaded_msg = ''
-format = '[ $symbol: $allowed|$loaded ]($style)'
+format = '[$symbol$allowed|$loaded ]($style)'
 style = "bg:color_bg1"
+
+[cmd_duration]
+disabled = false
+format = '[ $duration]($style)'
+style = 'bg:color_bg3'
