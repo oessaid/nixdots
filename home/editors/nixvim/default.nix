@@ -17,6 +17,7 @@
     ./telescope.nix
     ./colorscheme.nix
     ./completion.nix
+    ./utilities.nix
   ];
 
   programs.nixvim = {

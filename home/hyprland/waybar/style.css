@@ -1,23 +1,23 @@
 @define-color critical #ff0000;
-/* critical color */
 @define-color warning #f3f809;
-/* warning color */
 @define-color fgcolor #ffffff;
-/* foreground color */
 @define-color bgcolor #222436;
-/* background color */
 @define-color bgcolor #222436;
-/* background color */
 @define-color alert #df3320;
 
-@define-color accent1 #ff7a93;
-@define-color accent2 #b9f27c;
-@define-color accent3 #ff9e64;
-@define-color accent4 #bb9af7;
-@define-color accent5 #7da6ff;
-@define-color accent6 #0db9d7;
+/* @define-color accent1 #ff7a93; */
+/* @define-color accent2 #b9f27c; */
+/* @define-color accent3 #ff9e64; */
+/* @define-color accent4 #bb9af7; */
+/* @define-color accent5 #7da6ff; */
+/* @define-color accent6 #0db9d7; */
+@define-color accent1 #d79921;
+@define-color accent2 #458588;
+@define-color accent3 #d65d0e;
+@define-color accent4 #b16286;
+@define-color accent5 #689d6a;
+@define-color accent6 #98971a;
 @define-color waybarclr rgba(25, 25, 25, 0.02);
-/*#131313*/
 
 * {
   font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
@@ -29,9 +29,7 @@
 
 window#waybar {
   background-color: @waybarclr;
-  /*color of waybar*/
   color: #ffffff;
-  /* text color */
   transition-property: none;
   transition-duration: 0.5s;
   border-radius: 10px;
@@ -50,7 +48,6 @@ window#waybar.hidden {
 .modules-center,
 .modules-right {
   background: rgba(255, 255, 255, 0.05);
-  /*border: 0.5px solid @overlay0;*/
   padding-top: 2px;
   padding-bottom: 2px;
   padding-right: 4px;
