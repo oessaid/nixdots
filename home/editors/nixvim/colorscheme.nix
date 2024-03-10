@@ -15,30 +15,30 @@
 in {
   programs.nixvim = {
     colorschemes = {
-      # base16 = {
-      #   enable = true;
-      #   # colorscheme = "gruvbox-material-dark-hard";
-      #   colorscheme = "gruvbox-dark-hard";
-      # };
-      gruvbox = {
+      base16 = {
         enable = true;
-        settings = {
-          contrast = "hard";
-          dim_inactive = false;
-          invert_selection = false;
-          invert_signs = false;
-          invert_tabline = false;
-          invert_intend_guides = false;
-          inverse = false; # invert background for search, diffs, statuslines and errors
-          italic = {
-            strings = false;
-            emphasis = false;
-            comments = true;
-            operators = false;
-            folds = true;
-          };
-        };
+        # colorscheme = "gruvbox-material-dark-hard";
+        colorscheme = "gruvbox-dark-hard";
       };
+      # gruvbox = {
+      #   enable = true;
+      #   settings = {
+      #     contrast = "hard";
+      #     dim_inactive = false;
+      #     invert_selection = false;
+      #     invert_signs = false;
+      #     invert_tabline = false;
+      #     invert_intend_guides = false;
+      #     inverse = false; # invert background for search, diffs, statuslines and errors
+      #     italic = {
+      #       strings = false;
+      #       emphasis = false;
+      #       comments = true;
+      #       operators = false;
+      #       folds = true;
+      #     };
+      #   };
+      # };
     };
     extraPlugins = [
       # github-nvim-theme
@@ -53,7 +53,7 @@ in {
 
         -- We're explicitly calling this here because it needs to be set
         -- after setup of the plugin. Otherwise config is ignored.
-        vim.cmd('colorscheme gruvbox')
+        -- vim.cmd('colorscheme gruvbox')
       '';
   };
 }

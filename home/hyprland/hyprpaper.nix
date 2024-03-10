@@ -6,8 +6,12 @@
   ...
 }: {
   xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ~/wallpapers/mountain-3840x2160.jpeg
-    wallpaper = ,~/wallpapers/mountain-3840x2160.jpeg
+    # preload = ~/nixdots/home/wallpapers/mountain-3840x2160.jpeg
+    # wallpaper = ,~/nixdots/home/wallpapers/mountain-3840x2160.jpeg
+    # preload = ~/nixdots/home/wallpapers/nixos-everforest.jpg
+    # wallpaper = ,~/nixdots/home/wallpapers/nixos-everforest.jpg
+    preload = ~/nixdots/home/wallpapers/generated-nixos.png
+    wallpaper = ,~/nixdots/home/wallpapers/generated-nixos.png
   '';
 
   systemd.user.services.hyprpaper = {
