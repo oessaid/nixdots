@@ -23,8 +23,13 @@ in {
       gruvbox = {
         enable = true;
         settings = {
-          invert_selection = true;
           contrast = "hard";
+          dim_inactive = false;
+          invert_selection = false;
+          invert_signs = false;
+          invert_tabline = false;
+          invert_intend_guides = false;
+          inverse = false; # invert background for search, diffs, statuslines and errors
           italic = {
             strings = false;
             emphasis = false;
@@ -38,7 +43,7 @@ in {
     extraPlugins = [
       # github-nvim-theme
     ];
-    extraConfigLua =
+    extraConfigLuaPost =
       /*
       lua
       */
