@@ -4,17 +4,7 @@
   inputs,
   lib,
   ...
-}: let
-  github-nvim-theme = pkgs.vimUtils.buildVimPlugin {
-    name = "";
-    src = pkgs.fetchFromGitHub {
-      owner = "projekt0n";
-      repo = "github-nvim-theme";
-      rev = "d92e1143e5aaa0d7df28a26dd8ee2102df2cadd8";
-      hash = "sha256-FO4mwRY2qjutjVTiW0wN5KVhuoBZmycfOwMFInaTnNo=";
-    };
-  };
-in {
+}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
 
@@ -25,6 +15,7 @@ in {
     ./tree.nix
     ./git.nix
     ./telescope.nix
+    ./colorscheme.nix
   ];
 
   programs.nixvim = {
@@ -33,20 +24,6 @@ in {
     clipboard = {
       providers.wl-copy.enable = true;
       register = "unnamedplus";
-    };
-    colorschemes = {
-      base16 = {
-        enable = true;
-        # colorscheme = "gruvbox-material-dark-hard";
-        colorscheme = "gruvbox-dark-hard";
-      };
-      # gruvbox = {
-      #   enable = false;
-      #   settings = {
-      #     invert_selection = true;
-      #     contrast = "hard";
-      #   };
-      # };
     };
     options = {
       termguicolors = true;
@@ -106,16 +83,12 @@ in {
       };
     };
     extraPlugins = [
-      # github-nvim-theme
     ];
     extraConfigLua =
       /*
       lua
       */
       ''
-        -- vim.cmd('colorscheme github_dark_high_contrast')
-        -- vim.cmd('colorscheme github_dark_default')
-
         vim.fn.sign_define("DiagnosticSignError", {
           texthl = "DiagnosticSignError",
           text = "",
