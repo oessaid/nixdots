@@ -5,8 +5,8 @@
 }: let
   fuzzy-zathura = pkgs.writeShellScriptBin "fuzzy-zathura" ''
     #!/bin/sh
-    file=$(fd . ~/books --type f | fzf)
-    [-n "$file"] && alacritty -e "zathura '$file' &"
+    book=$(fd . ~/books --type f | fzf)
+    [ -n "$book" ] && zathura "$book"
   '';
 in {
   home.packages = with pkgs; [
