@@ -81,8 +81,7 @@
         "$mod, SPACE, exec, wofi --show drun"
         "$mod, RETURN, exec, alacritty"
         "$mod, F, exec, firefox"
-        # "$mod, B, exec, fd . ~/books --type f | fzf | xargs -r zathura"
-        "$mod, B, execr, alacritty -e fuzzy-zathura"
+        "$mod, B, exec, alacritty -e fuzzy-zathura"
         "$mod, Q, killactive"
 
         "$mod, h, movefocus, l"

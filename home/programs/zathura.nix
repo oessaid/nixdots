@@ -6,6 +6,11 @@
   programs.zathura = {
     enable = true;
     extraConfig = ''
+      set adjust-open "best-fit"
+
+      map j feedkeys "<C-Down>"
+      map k feedkeys "<C-Up>"
+
       # zathura-gruvbox-dark-hard
       set notification-error-bg       "#1d2021" # bg
       set notification-error-fg       "#fb4934" # bright:red
@@ -46,7 +51,7 @@
       set recolor-lightcolor          "#1d2021" # bg
       set recolor-darkcolor           "#ebdbb2" # fg
       set recolor                     "true"
-      # set recolor-keephue             true      # keep original color
+      set recolor-keephue             true      # keep original color
     '';
   };
 }
