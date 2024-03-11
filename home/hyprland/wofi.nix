@@ -8,7 +8,8 @@
     style = ''
       window {
       margin: 0px;
-      border: 1px solid #928374;
+      # border: 1px solid #928374;
+      border: none;
       background-color: #282828;
       }
 

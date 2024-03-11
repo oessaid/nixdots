@@ -102,8 +102,8 @@
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
 
-        "$mainMod, I, workspace, m+1"
-        "$mainMod, U, workspace, m-1"
+        "$mainMod, I, workspace, r+1"
+        "$mainMod, U, workspace, r-1"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -122,10 +122,10 @@
       bind = , SPACE, togglefloating
 
       # resize (press and hold)
-      binde = CTRL, l, resizeactive, 10 0
-      binde = CTRL, h, resizeactive, -10 0
-      binde = CTRL, k, resizeactive, 0 -10
-      binde = CTRL, j, resizeactive, 0 10
+      binde = CTRL, l, resizeactive, 25 0
+      binde = CTRL, h, resizeactive, -25 0
+      binde = CTRL, k, resizeactive, 0 -25
+      binde = CTRL, j, resizeactive, 0 25
 
       # move window
       bind = , h, movewindow, l
@@ -145,7 +145,8 @@
       bind = , 9, movetoworkspace, 9
       bind = , 0, movetoworkspace, 10
 
-      bind = , I, movetoworkspace, m+1 bind = , U, movetoworkspace, m-1
+      bind = , I, movetoworkspace, m+1
+      bind = , U, movetoworkspace, m-1
 
       # Reset submap
       bind = , escape, submap, reset
