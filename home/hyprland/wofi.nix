@@ -61,7 +61,7 @@
       content_halignr = "fill";
       insensitive = true;
       allow_images = true;
-      image_size = 40;
+      image_size = 20;
       gtk_dark = true;
     };
   };
