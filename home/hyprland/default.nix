@@ -76,51 +76,79 @@
           "workspaces, 1, 2, default, slide"
         ];
       };
-      "$mod" = "SUPER";
+      "$mainMod" = "CTRL_ALT_SHIFT_WIN";
+      "$altMod" = "SUPER";
       bind = [
-        "$mod, SPACE, exec, wofi --show drun"
-        "$mod, RETURN, exec, alacritty"
-        "$mod, F, exec, firefox"
-        "$mod, B, exec, alacritty -e fuzzy-zathura"
-        "$mod, Q, killactive"
+        "$mainMod, SPACE, exec, wofi --show drun"
+        "$mainMod, T, exec, alacritty"
+        "$mainMod, F, exec, firefox"
+        "$mainMod, B, exec, alacritty -e fuzzy-zathura"
+        "$mainMod, Q, killactive"
 
-        "$mod, h, movefocus, l"
-        "$mod, j, movefocus, d"
-        "$mod, k, movefocus, u"
-        "$mod, l, movefocus, r"
+        "$mainMod, h, movefocus, l"
+        "$mainMod, j, movefocus, d"
+        "$mainMod, k, movefocus, u"
+        "$mainMod, l, movefocus, r"
 
-        "$mod, 1, workspace, 1"
-        "$mod, 2, workspace, 2"
-        "$mod, 3, workspace, 3"
-        "$mod, 4, workspace, 4"
-        "$mod, 5, workspace, 5"
-        "$mod, 6, workspace, 6"
-        "$mod, 7, workspace, 7"
-        "$mod, 8, workspace, 8"
-        "$mod, 9, workspace, 9"
-        "$mod, 0, workspace, 10"
+        "$mainMod, 1, workspace, 1"
+        "$mainMod, 2, workspace, 2"
+        "$mainMod, 3, workspace, 3"
+        "$mainMod, 4, workspace, 4"
+        "$mainMod, 5, workspace, 5"
+        "$mainMod, 6, workspace, 6"
+        "$mainMod, 7, workspace, 7"
+        "$mainMod, 8, workspace, 8"
+        "$mainMod, 9, workspace, 9"
+        "$mainMod, 0, workspace, 10"
 
-        "$mod, I, workspace, m+1"
-        "$mod, U, workspace, m-1"
-
-        "$mod SHIFT, 1, movetoworkspace, 1"
-        "$mod SHIFT, 2, movetoworkspace, 2"
-        "$mod SHIFT, 3, movetoworkspace, 3"
-        "$mod SHIFT, 4, movetoworkspace, 4"
-        "$mod SHIFT, 5, movetoworkspace, 5"
-        "$mod SHIFT, 6, movetoworkspace, 6"
-        "$mod SHIFT, 7, movetoworkspace, 7"
-        "$mod SHIFT, 8, movetoworkspace, 8"
-        "$mod SHIFT, 9, movetoworkspace, 9"
-        "$mod SHIFT, 0, movetoworkspace, 10"
+        "$mainMod, I, workspace, m+1"
+        "$mainMod, U, workspace, m-1"
       ];
       bindm = [
-        "$mod, mouse:272, movewindow"
-        "$mod, mouse:273, resizewindow"
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
       ];
     };
     extraConfig = ''
+      # monitor setup
       monitor=desc:LG Electronics LG TV SSCR2 0x01010101,3840x2160@120,auto,1.0,bitdepth,10,vrr,2
+
+      # layout edit
+      bind = $mainMod, RETURN, submap, layoutedit
+      submap = layoutedit
+
+      # toggle floating
+      bind = , SPACE, togglefloating
+
+      # resize (press and hold)
+      binde = CTRL, l, resizeactive, 10 0
+      binde = CTRL, h, resizeactive, -10 0
+      binde = CTRL, k, resizeactive, 0 -10
+      binde = CTRL, j, resizeactive, 0 10
+
+      # move window
+      bind = , h, movewindow, l
+      bind = , l, movewindow, r
+      bind = , k, movewindow, u
+      bind = , j, movewindow, d
+
+      # move to workspace
+      bind = , 1, movetoworkspace, 1
+      bind = , 2, movetoworkspace, 2
+      bind = , 3, movetoworkspace, 3
+      bind = , 4, movetoworkspace, 4
+      bind = , 5, movetoworkspace, 5
+      bind = , 6, movetoworkspace, 6
+      bind = , 7, movetoworkspace, 7
+      bind = , 8, movetoworkspace, 8
+      bind = , 9, movetoworkspace, 9
+      bind = , 0, movetoworkspace, 10
+
+      bind = , I, movetoworkspace, m+1 bind = , U, movetoworkspace, m-1
+
+      # Reset submap
+      bind = , escape, submap, reset
+      submap = reset
     '';
   };
 }
