@@ -4,9 +4,10 @@
   ...
 }: {
   imports = [
+    ./scripts
     ./waybar
     ./hyprpaper.nix
-    ./scripts
+    ./wofi.nix
   ];
 
   wayland.windowManager.hyprland = {

@@ -27,7 +27,6 @@
     wev
 
     # WM utilities
-    wofi
     dunst
 
     # nix related
