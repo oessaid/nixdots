@@ -48,7 +48,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.oessaid = {
               imports = [
-                ./home
+                ./hosts/homenix/home.nix
               ];
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
@@ -59,12 +59,10 @@
 
     # Available through `home-manager --flake .#user@host switch`
     homeConfigurations = {
-      "oessaid@worknix" = home-manager.lib.homeManagerConfiguration {
+      worknix = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [./hosts/worknix/home.nix];
         extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./home
-        ];
       };
     };
   };
