@@ -145,8 +145,8 @@
       bind = , 9, movetoworkspace, 9
       bind = , 0, movetoworkspace, 10
 
-      bind = , I, movetoworkspace, m+1
-      bind = , U, movetoworkspace, m-1
+      bind = , I, movetoworkspace, r+1
+      bind = , U, movetoworkspace, r-1
 
       # Reset submap
       bind = , escape, submap, reset

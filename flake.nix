@@ -2,27 +2,20 @@
   description = "NixOS configuration flake";
 
   inputs = {
-    # Default to the nixos-unstable branch
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    # Latest stable branch of nixpkgs, used for version rollback
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,18 +32,13 @@
     nixvim,
     ...
   } @ inputs: {
+    # Available through `nixos-rebuild --flake .#host switch`
     nixosConfigurations = {
       homenix = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
-
-        # Passes the non-default nixpkgs instances to other nix modules
         specialArgs = {inherit inputs;};
-
         modules = [
-          # Import the previous configuration.nix we used,
-          # so the old configuration file still takes effect
-          ./configuration.nix
-
+          ./hosts/homenix/configuration.nix
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically
           # when executing `nixos-rebuild switch`
@@ -65,6 +53,17 @@
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
           }
+        ];
+      };
+    };
+
+    # Available through `home-manager --flake .#user@host switch`
+    homeConfigurations = {
+      "oessaid@worknix" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./home
         ];
       };
     };
