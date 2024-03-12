@@ -23,7 +23,7 @@
     # Temporary until this is merged:
     # https://github.com/nix-community/nixGL/pull/152
     nixgl = {
-      url = "github:cmm/nixgl/main";
+      url = "github:cmm/nixGL/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

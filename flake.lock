@@ -383,14 +383,14 @@
         "lastModified": 1703258660,
         "narHash": "sha256-ovIK4veGm/W28/lLAjDYCrdEsmb694+S/WDDdAyUbZY=",
         "owner": "cmm",
-        "repo": "nixgl",
+        "repo": "nixGL",
         "rev": "3067d653b937286890e68d20e24fa98f00fc0308",
         "type": "github"
       },
       "original": {
         "owner": "cmm",
         "ref": "main",
-        "repo": "nixgl",
+        "repo": "nixGL",
         "type": "github"
       }
     },

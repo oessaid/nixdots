@@ -22,10 +22,10 @@ in {
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
+      nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGLDefault}/bin/nixGLDefault";
       permittedInsecurePackages = [
         "nix-2.16.2"
       ];
-      nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGL}/bin/nixGL";
     };
   };
 
@@ -33,6 +33,11 @@ in {
     stateVersion = "23.11";
     username = "oessaid";
     homeDirectory = "/home/oessaid";
+  };
+
+  programs.alacritty = {
+    enable = true;
+    package = nixGL pkgs.alacritty;
   };
 
   # Nicely reload system units when changing configs
