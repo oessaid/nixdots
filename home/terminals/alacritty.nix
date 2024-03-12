@@ -1,9 +1,14 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  nixGL,
+  ...
+}: let
   font = "JetBrainsMono Nerd Font";
 in {
   programs.alacritty = {
     enable = true;
-    # package = pkgs-stable.alacritty;
+    # package = nixGL pkgs.alacritty;
     settings = {
       # env.TERM = "xterm-256color";
       scrolling.history = 10000;

@@ -5,8 +5,14 @@
   pkgs-stable,
   lib,
   ...
-}: {
+}: let
+  nixGL = import ./nixGL.nix {
+    inherit pkgs;
+    inherit config;
+  };
+in {
   imports = [
+    ./options.nix
     ../../home
   ];
 
@@ -19,6 +25,7 @@
       permittedInsecurePackages = [
         "nix-2.16.2"
       ];
+      nixGLPrefix = "${nixGL.packages.x86_64-linux.nixGL}/bin/nixGL";
     };
   };
 

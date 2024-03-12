@@ -4,6 +4,7 @@
   pkgs,
   pkgs-stable,
   lib,
+  nixGL,
   ...
 }: {
   imports = [

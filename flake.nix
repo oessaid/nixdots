@@ -20,6 +20,12 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Temporary until this is merged:
+    # https://github.com/nix-community/nixGL/pull/152
+    nixgl = {
+      url = "github:cmm/nixgl/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -30,6 +36,7 @@
     hyprland,
     hyprpaper,
     nixvim,
+    nixgl,
     ...
   } @ inputs: {
     # Available through `nixos-rebuild --flake .#host switch`
@@ -39,9 +46,8 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/homenix/configuration.nix
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically
-          # when executing `nixos-rebuild switch`
+          # make home-manager a module of nixos,
+          # deploy home-manager alongside nixos
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -62,11 +68,7 @@
       worknix = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "x86_64-linux";
-          config.allowUnfree = true;
-          config.allowUnfreePredicate = _: true;
-          config.permittedInsecurePackages = [
-            "nix-2.16.2"
-          ];
+          overlays = [nixgl.overlay];
         };
         extraSpecialArgs = {inherit inputs;};
         modules = [./hosts/worknix/home.nix];
