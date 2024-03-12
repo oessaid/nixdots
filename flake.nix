@@ -60,9 +60,16 @@
     # Available through `home-manager --flake .#user@host switch`
     homeConfigurations = {
       worknix = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [./hosts/worknix/home.nix];
+        pkgs = import nixpkgs {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+          config.allowUnfreePredicate = _: true;
+          config.permittedInsecurePackages = [
+            "nix-2.16.2"
+          ];
+        };
         extraSpecialArgs = {inherit inputs;};
+        modules = [./hosts/worknix/home.nix];
       };
     };
   };

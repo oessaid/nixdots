@@ -10,10 +10,15 @@
     ../../home
   ];
 
+  targets.genericLinux.enable = true;
+
   nixpkgs = {
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
+      permittedInsecurePackages = [
+        "nix-2.16.2"
+      ];
     };
   };
 
@@ -22,9 +27,6 @@
     username = "oessaid";
     homeDirectory = "/home/oessaid";
   };
-
-  home.packages = [
-  ];
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
