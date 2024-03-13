@@ -4,11 +4,12 @@
   lib,
   ...
 }: let
+  nixGL = import ../nixGL.nix {inherit pkgs config;};
   font = "JetBrainsMono Nerd Font";
 in {
   programs.alacritty = {
     enable = true;
-    # package = nixGL pkgs.alacritty;
+    package = nixGL pkgs.alacritty;
     settings = {
       # env.TERM = "xterm-256color";
       scrolling.history = 10000;

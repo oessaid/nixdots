@@ -5,7 +5,9 @@
   pkgs-stable,
   lib,
   ...
-}: {
+}: let
+  nixGL = import ./nixGL.nix {inherit pkgs config;};
+in {
   imports = [
     ./options.nix
 
@@ -19,4 +21,9 @@
 
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.chromium = {
+    enable = true;
+    package = nixGL pkgs.chromium;
+  };
 }
