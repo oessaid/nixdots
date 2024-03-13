@@ -5,7 +5,7 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.wm.hyprland;
+  cfg = config.wm.hyprland;
 in {
   imports = [
     ./scripts
@@ -13,10 +13,6 @@ in {
     ./hyprpaper.nix
     ./wofi.nix
   ];
-
-  options.modules.wm.hyprland = {
-    enable = mkEnableOption "enable hyprland";
-  };
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {

@@ -9,11 +9,14 @@
     ../../home
   ];
 
-  config.wm.hyprland.enable = true;
+  config = {
+    # Manually installed on Ubuntu 22.04
+    wm.hyprland.enable = true;
 
-  home = {
-    stateVersion = "23.11";
-    username = "oessaid";
-    homeDirectory = "/home/oessaid";
+    home = {
+      stateVersion = "23.11";
+      username = "oessaid";
+      homeDirectory = "/home/oessaid";
+    };
   };
 }

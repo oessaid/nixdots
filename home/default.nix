@@ -7,6 +7,8 @@
   ...
 }: {
   imports = [
+    ./options.nix
+
     ./editors
     ./terminals
     ./shells

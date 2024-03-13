@@ -13,10 +13,8 @@
   config = {
     targets.genericLinux.enable = true;
 
-    modules = {
-      # Manually installed on Ubuntu 22.04
-      wm.hyprland.enable = false;
-    };
+    # Manually installed on Ubuntu 22.04
+    wm.hyprland.enable = false;
 
     nixpkgs = {
       config = {
@@ -33,8 +31,5 @@
       username = "oessaid";
       homeDirectory = "/home/oessaid";
     };
-
-    # Nicely reload system units when changing configs
-    systemd.user.startServices = "sd-switch";
   };
 }
