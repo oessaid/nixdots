@@ -14,6 +14,7 @@
     targets.genericLinux.enable = true;
 
     nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
+    # nixGLPrefix = "${pkgs.nixgl.auto.nixGLNvidia}/bin/nixGLNvidia";
 
     # Manually installed on Ubuntu 22.04
     wm.hyprland.enable = false;
