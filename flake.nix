@@ -73,6 +73,9 @@
         extraSpecialArgs = {inherit inputs;};
         modules = [
           ./hosts/worknix/home.nix
+
+          hyprland.homeManagerModules.default
+          {wayland.windowManager.hyprland.enable = true;}
         ];
       };
     };

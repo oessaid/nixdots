@@ -6,6 +6,7 @@
 }:
 with lib; let
   cfg = config.wm.hyprland;
+  nixGL = import ../nixGL.nix {inherit pkgs config;};
 in {
   imports = [
     ./scripts
@@ -16,6 +17,9 @@ in {
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
+      # Wrap with nixGL if a nixGL prefix is set
+      package = nixGL pkgs.hyprland;
+
       enable = cfg.enable;
       xwayland.enable = true;
       settings = {
@@ -29,6 +33,8 @@ in {
           "XDG_CURRENT_DESKTOP=Hyprland"
           "XDG_SESSION_TYPE=wayland"
           "XDG_SESSION_DESKTOP=Hyprland"
+
+          "WLR_RENDERER_ALLOW_SOFTWARE=1"
         ];
         exec-once = [
           "dunst"

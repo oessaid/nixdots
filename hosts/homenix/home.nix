@@ -13,6 +13,8 @@
     # Manually installed on Ubuntu 22.04
     wm.hyprland.enable = true;
 
+    wayland.windowManager.hyprland.enable = true;
+
     home = {
       stateVersion = "23.11";
       username = "oessaid";
