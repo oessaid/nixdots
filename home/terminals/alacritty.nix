@@ -13,6 +13,9 @@ in {
     settings = {
       # env.TERM = "xterm-256color";
       scrolling.history = 10000;
+      shell = {
+        program = "zsh";
+      };
       font = {
         size = 12.5;
         normal.family = font;
@@ -20,6 +23,7 @@ in {
         italic.family = font;
       };
       window = {
+        decorations = "none";
         dynamic_padding = true;
         padding = {
           x = 2;
