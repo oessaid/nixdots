@@ -65,13 +65,12 @@
 
     # Available through `home-manager --flake .#user@host switch`
     homeConfigurations = {
-      worknix = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "x86_64-linux";
-          overlays = [nixgl.overlay];
-        };
+      "oessaid@worknix" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs;};
-        modules = [./hosts/worknix/home.nix];
+        modules = [
+          ./hosts/worknix/home.nix
+        ];
       };
     };
   };

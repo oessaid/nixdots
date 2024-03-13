@@ -9,6 +9,8 @@
     ../../home
   ];
 
+  config.wm.hyprland.enable = true;
+
   home = {
     stateVersion = "23.11";
     username = "oessaid";
