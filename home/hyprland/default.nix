@@ -34,7 +34,10 @@ in {
           "XDG_SESSION_TYPE=wayland"
           "XDG_SESSION_DESKTOP=Hyprland"
 
-          "WLR_RENDERER_ALLOW_SOFTWARE=1"
+          # Worknix nonsense (because Ubuntu and Wayland)
+          # This was required to use the discrete Nvidia GPU
+          "__NV_PRIME_RENDER_OFFLOAD,1"
+          "WLR_RENDERER_ALLOW_SOFTWARE,1"
         ];
         exec-once = [
           "dunst"

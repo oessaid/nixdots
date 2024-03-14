@@ -37,6 +37,7 @@
     # work specific packages
     home.packages = with pkgs; [
       obsidian
+      slack
     ];
   };
 }
