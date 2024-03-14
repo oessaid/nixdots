@@ -14,7 +14,7 @@ config.window_padding = {
   bottom = 5,
 }
 
--- config.front_end = "WebGpu"
--- config.webgpu_power_preference = "HighPerformance"
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
 
 return config
