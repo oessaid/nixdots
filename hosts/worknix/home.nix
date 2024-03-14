@@ -14,7 +14,8 @@
     targets.genericLinux.enable = true;
 
     nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
-
+    nixGLPrefixNvidia = "/home/oessaid/.nix-profile/bin/nixGLNvidia-545.29.06";
+    # nixGLPrefixNvidia = "${pkgs.nixgl.auto.nixGLNvidia}/bin/nixGLNvidia-545.29.06";
     wm.hyprland.enable = true;
 
     nixpkgs = {
@@ -32,5 +33,10 @@
       username = "oessaid";
       homeDirectory = "/home/oessaid";
     };
+
+    # work specific packages
+    home.packages = with pkgs; [
+      obsidian
+    ];
   };
 }

@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  nixGL = import ../nixGL.nix {inherit pkgs config;};
+  nixGL = import ../nixGLNvidia.nix {inherit pkgs config;};
   font = "JetBrainsMono Nerd Font";
 in {
   programs.alacritty = {
