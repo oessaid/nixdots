@@ -8,5 +8,6 @@
     ./git.nix
     ./zathura.nix
     ./firefox.nix
+    ./dropbox.nix
   ];
 }

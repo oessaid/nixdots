@@ -36,11 +36,8 @@ in {
         "modules-left" = [
           "custom/menu"
           "custom/separator#line"
-          "custom/app#discord"
-          "custom/app#steam"
           "custom/app#term"
           "custom/app#firefox"
-          "custom/app#vscode"
           "custom/separator#line"
           "wlr/taskbar"
         ];
@@ -51,20 +48,16 @@ in {
           "tray"
           "privacy"
           "custom/separator#line"
-          "network#speed"
+          "bluetooth"
           "custom/separator#line"
+          # "network#speed"
+          # "custom/separator#line"
           "wireplumber"
           "custom/separator#line"
-          "clock"
-          "custom/separator#line"
+          # "clock"
+          # "custom/separator#line"
           "custom/power"
         ];
-
-        "custom/app#discord" = {
-          "format" = "{} 󰙯";
-          "tooltip" = false;
-          "on-click" = "vesktop";
-        };
 
         "custom/app#firefox" = {
           "format" = "{} 󰈹 ";
@@ -72,11 +65,6 @@ in {
           "on-click" = "firefox";
         };
 
-        "custom/app#steam" = {
-          "format" = "{}  ";
-          "tooltip" = false;
-          "on-click" = "steam";
-        };
         "custom/app#term" = {
           "format" = "{}  ";
           "tooltip" = false;
@@ -130,6 +118,8 @@ in {
           "format" = " {:%H:%M:%S}";
           "format-alt" = " {:%H:%M   %Y; %d %B, %A}";
           "tooltip-format" = "<tt><small>{calendar}</small></tt>";
+          "locale" = "fr_FR.UTF-8";
+          "timezone" = "Europe/Paris";
           "calendar" = {
             "mode" = "year";
             "mode-mon-col" = 3;

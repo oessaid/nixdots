@@ -46,12 +46,13 @@ in {
           "NIXOS_OZONE_WL,1"
         ];
         exec-once = [
-          "dunst"
+          "hyprpaper"
+          "waybar"
           "nm-applet --indicator & disown"
+          "dunst"
+          "blueman-applet"
         ];
         exec = [
-          "pkill waybar & sleep 0.5 && waybar"
-          "hyprpaper"
         ];
         general = {
           gaps_in = 5;
