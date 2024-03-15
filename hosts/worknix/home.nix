@@ -42,10 +42,6 @@
       obsidian
       slack
 
-      # dropbox
-      # maestral
-      # maestral-gui
-
       # screen sharing
       pipewire
       wireplumber
