@@ -69,6 +69,11 @@ in {
       set -g focus-events on
       set-option -g renumber-windows on
 
+      # multiline status bar for padding
+      set -Fg "status-format[1]" "#{status-format[0]}"
+      set -g "status-format[0]" ""
+      set -g status 2
+
       # split panes using | and - (and stay in the current directory)
       bind \\ split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
