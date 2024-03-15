@@ -1,0 +1,7 @@
+build-users-group = nixbld
+experimental-features = nix-command flakes
+max-jobs = auto
+substituters = https://cache.nixos.org/ s3://71ef4e7a-e66d-4959-9b6d-5a282b0d8d3f?region=eu-west-1&profile=helcache
+trusted-users = oessaid
+trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= helcache-1:ZdrT4mviyOiPQNoJda8YKmpWOA1egXUDNr+dr7aISN8=
+ssl-cert-file = /var/corpnet.crt

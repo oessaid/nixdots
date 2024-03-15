@@ -10,7 +10,7 @@
       keymaps = {
       };
       extensions = {
-        file_browser.enable = true;
+        # file_browser.enable = true;
         fzf-native.enable = true;
         ui-select.enable = true;
       };
@@ -19,7 +19,14 @@
       {
         mode = "n";
         key = "<leader>/";
-        action = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({layout_strategy='bottom_pane'})<cr>";
+        # action = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({layout_strategy='bottom_pane'})<cr>";
+        action = "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>fs";
+        # action = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find({layout_strategy='bottom_pane'})<cr>";
+        action = "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>";
       }
       {
         mode = "n";

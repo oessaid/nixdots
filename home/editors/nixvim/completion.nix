@@ -46,16 +46,50 @@
           {name = "treesitter";}
           {name = "crates";}
           {name = "spell";}
+          # Don't add cmdline to global sources
+          # https://github.com/hrsh7th/nvim-cmp/issues/1310#issuecomment-1326712312
+          # {name = "cmdline";}
         ];
         mapping = {
           "<Down>" = "cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { 'i', 'c' })";
           "<Up>" = "cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { 'i', 'c' })";
-          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { 'i', 'c' })";
           "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { 'i','c' })";
           "<C-k>" = "cmp.mapping.scroll_docs(-4)";
           "<C-j>" = "cmp.mapping.scroll_docs(4)";
           "<CR>" = "cmp.mapping(cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace,select = true,}), { 'i' })";
           "<Right>" = "cmp.mapping(cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace,select = true,}), { 'c' })";
+          "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { 'i', 'c' })";
+        };
+      };
+      cmdline = {
+        "/" = {
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
+          sources = [
+            {
+              name = "buffer";
+            }
+          ];
+        };
+        ":" = {
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
+          sources = [
+            {
+              name = "path";
+            }
+            {
+              name = "cmdline";
+              option = {
+                ignore_cmds = [
+                  "Man"
+                  "!"
+                ];
+              };
+            }
+          ];
         };
       };
     };

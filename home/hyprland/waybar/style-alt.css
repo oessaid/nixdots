@@ -1,0 +1,181 @@
+/* @define-color background rgba(40, 40, 40, 1); */
+@define-color background #1D2021;
+@define-color foreground #ebdbb2;
+@define-color alt_background #1d2021;
+
+@define-color black #32344a;
+@define-color red #cc241d;
+@define-color green #98971a;
+@define-color yellow #d79921;
+@define-color blue #458588;
+@define-color magenta #b16286;
+@define-color cyan #689d6a;
+@define-color white #ebdbb2;
+
+@define-color alt_black #414868;
+@define-color alt_red #fb4934;
+@define-color alt_green #b8bb26;
+@define-color alt_blue #83a598;
+@define-color alt_yellow #fabd2f;
+@define-color alt_magenta #d3869b;
+@define-color alt_cyan #8ec07c;
+@define-color alt_white #fbf1c7;
+
+* {
+  border: none;
+  font-family:
+    JetBrainsMono Nerd Font,
+    Symbols Nerd Font,
+    sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+window#waybar {
+  color: @alt_green;
+  background-color: rgba(40, 40, 40, 0);
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+window#hyprland-window {
+  border: 2px solid @yellow;
+}
+
+#workspaces,
+#taskbar,
+#mode,
+#window,
+#cpu,
+#memory,
+#temperature,
+#custom-wmname,
+#clock,
+#pulseaudio,
+#backlight,
+#battery,
+#tray {
+  background-color: @background;
+  padding: 0 10px;
+  color: @yellow;
+  margin: 5px 4px 6px 4px;
+  border: none;
+  border-radius: 12px;
+  background-clip: padding-box;
+}
+
+#workspaces {
+  background-color: @background;
+  padding: 4px 4px;
+  margin: 5px 4px 6px 4px;
+}
+
+#workspaces button {
+  min-width: 20px;
+  color: @blue;
+  padding: 0 10px;
+  margin: 0px 4px;
+}
+
+#workspaces button:hover {
+  background-color: rgba(31, 31, 45, 0.5);
+}
+
+#workspaces button.active {
+  color: @background;
+  background-color: @blue;
+}
+
+#workspaces button.urgent {
+  color: @red;
+}
+
+#cpu {
+  padding: 0 10px;
+  color: @cyan;
+  border-right: none;
+  border-radius: 12px 0px 0px 12px;
+  margin: 5px -2px 6px 4px;
+}
+
+#memory {
+  padding: 0 10px;
+  color: @cyan;
+  border-left: none;
+  border-radius: 0px 12px 12px 0px;
+  margin: 5px 4px 6px -2px;
+}
+
+#temperature {
+  padding: 0 10px;
+  color: @cyan;
+  margin: 5px -2px 6px -2px;
+  border-right: none;
+  border-left: none;
+  border-radius: 0px 0px 0px 0px;
+}
+
+#clock {
+  padding: 0 10px;
+  color: @magenta;
+}
+
+#pulseaudio {
+  padding: 0 10px;
+  color: @yellow;
+  /* border-left: none; */
+  /* border-radius: 0px 12px 12px 0px; */
+  /* margin: 5px 10px 6px -2px; */
+}
+
+#pulseaudio.muted {
+  padding: 0 10px;
+  color: @red;
+  border-left: none;
+  border-radius: 0px 12px 12px 0px;
+}
+
+#backlight {
+  padding: 0 10px;
+  color: @yellow;
+  border-right: none;
+  border-radius: 12px 0px 0px 12px;
+  margin: 5px -2px 6px 4px;
+}
+
+#battery {
+  padding: 0 10px;
+  color: @alt_green;
+}
+
+#battery.charging,
+#battery.plugged {
+  padding: 0 10px;
+  background-color: @alt_green;
+  color: @background;
+}
+
+#custom-wmname {
+  color: @blue;
+  background-color: @background;
+  font-size: 23px;
+  padding: 1px 1px 1px 5px;
+  margin: 5px 4px 6px 10px;
+}
+
+#taskbar button.active {
+  background-color: rgba(90, 90, 90, 0.3);
+  padding-left: 12px;
+  padding-right: 12px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#taskbar button:hover {
+  padding-left: 3px;
+  padding-right: 3px;
+  animation: gradient_f 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}

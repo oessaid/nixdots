@@ -1,10 +1,6 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  nixGL = import ../../nixGLNvidia.nix {inherit pkgs config;};
+{ config, pkgs, lib, ... }:
+# let nixGL = import ../../nixGLNvidia.nix { inherit pkgs config; };
+let nixGL = import ../../nixGL.nix { inherit pkgs config; };
 in {
   programs.wezterm = {
     enable = true;

@@ -1,11 +1,8 @@
-{lib, ...}: {
+{ lib, ... }: {
   options = {
-    wm = {
-      hyprland = {
-        enable = lib.mkEnableOption "enable hyprland";
-      };
-    };
-    nixGLPrefix = lib.mkOption {
+    wm = { hyprland = { enable = lib.mkEnableOption "enable hyprland"; }; };
+    utilities = { waybar = { enable = lib.mkEnableOption "enable waybar"; }; };
+    nixGLPrefixIntel = lib.mkOption {
       type = lib.types.str;
       default = "";
       description = ''

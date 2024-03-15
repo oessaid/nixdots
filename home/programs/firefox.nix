@@ -3,10 +3,11 @@
   pkgs,
   ...
 }: let
-  nixGL = import ../nixGLNvidia.nix {inherit pkgs config;};
+  # nixGL = import ../nixGLNvidia.nix {inherit pkgs config;};
+  nixGL = import ../nixGL.nix {inherit pkgs config;};
 in {
   programs.firefox = {
-    enable = true;
+    enable = false;
     package = nixGL pkgs.firefox;
   };
 }

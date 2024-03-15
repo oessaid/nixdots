@@ -1,11 +1,9 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: let
-  nixGL = import ../nixGLNvidia.nix {inherit pkgs config;};
-  font = "JetBrainsMono Nerd Font";
+{ pkgs, config, lib, ... }:
+let
+  # nixGL = import ../nixGLNvidia.nix { inherit pkgs config; };
+  nixGL = import ../nixGL.nix { inherit pkgs config; };
+  font = "JetBrainsMono Nerd Font"; # size 11
+  # font = "ProggyClean Nerd Font"; # size 15
 in {
   programs.alacritty = {
     enable = true;
@@ -13,12 +11,22 @@ in {
     settings = {
       # env.TERM = "xterm-256color";
       scrolling.history = 10000;
-      shell = {
-        program = "zsh";
-      };
+      shell = { program = "zsh"; };
       font = {
-        size = 11.0;
-        normal.family = font;
+        # size = 15.0;
+        size = 12.0;
+        normal = {
+          family = font;
+          style = "Regular";
+        };
+        # bold = {
+        #   family = font;
+        #   style = "Regular";
+        # };
+        # italic = {
+        #   family = font;
+        #   style = "Regular";
+        # };
         bold.family = font;
         italic.family = font;
       };
@@ -33,10 +41,16 @@ in {
       #scrolling.multiplier = 5;
       #selection.save_to_clipboard = true;
       colors = {
+        draw_bold_text_with_bright_colors = false;
+
         # gruvbox material dark hard
         # primary = {
         #   background = "0x1d2021";
         #   foreground = "0xd4be98";
+        # };
+        # cursor = {
+        #   text = "0x1d2021";
+        #   cursor = "0xd5c4a1";
         # };
         # normal = {
         #   black = "0x32302f";

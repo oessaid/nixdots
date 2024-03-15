@@ -1,21 +1,15 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
-  tmux-status-theme =
-    pkgs.tmuxPlugins.mkTmuxPlugin
-    {
-      pluginName = "minimal";
-      version = "unstable-2024-02-25";
-      src = pkgs.fetchFromGitHub {
-        owner = "niksingh710";
-        repo = "minimal-tmux-status";
-        rev = "5183698f30c521fdf890d287e3ba2f81ea4e0d1c";
-        sha256 = "sha256-BrlMV4w1AsjLTjwKQXuOGRPy8QFsS4JtFtGFRUluQ50=";
-      };
+{ config, pkgs, lib, ... }:
+let
+  tmux-status-theme = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "minimal";
+    version = "unstable-2024-02-25";
+    src = pkgs.fetchFromGitHub {
+      owner = "niksingh710";
+      repo = "minimal-tmux-status";
+      rev = "5183698f30c521fdf890d287e3ba2f81ea4e0d1c";
+      sha256 = "sha256-BrlMV4w1AsjLTjwKQXuOGRPy8QFsS4JtFtGFRUluQ50=";
     };
+  };
 in {
   programs.tmux = {
     enable = true;
@@ -33,7 +27,7 @@ in {
       {
         plugin = tmux-status-theme;
         extraConfig = ''
-          set -g @minimal-tmux-bg "#458588"
+          set -g @minimal-tmux-bg "#1e60d5"
           set -g @minimal-tmux-indicator-str "  [tmux]  "
           # false will make it visible for the current tab only
           set -g @minimal-tmux-show-expanded-icons-for-all-tabs true
@@ -73,6 +67,11 @@ in {
       set -Fg "status-format[1]" "#{status-format[0]}"
       set -g "status-format[0]" ""
       set -g status 2
+
+      # image preview from yazi
+      set -g allow-passthrough on
+      set -ga update-environment TERM
+      set -ga update-environment TERM_PROGRAM
 
       # split panes using | and - (and stay in the current directory)
       bind \\ split-window -h -c "#{pane_current_path}"

@@ -1,12 +1,10 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     neofetch
-    nnn # terminal file manager
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    (nerdfonts.override {
+      fonts = [ "JetBrainsMono" "NerdFontsSymbolsOnly" "ProggyClean" ];
+    })
 
     # utils
     ripgrep # recursively searches directories for a regex pattern
@@ -21,13 +19,11 @@
     file
     which
     tree
+    curl
 
     # keyboard debug
     xorg.xmodmap
     wev
-
-    # WM utilities
-    dunst
 
     # nix related
     #
@@ -46,7 +42,7 @@
     wl-clipboard
     hwinfo
     pciutils
-    glxinfo
+    # glxinfo
 
     pavucontrol
 

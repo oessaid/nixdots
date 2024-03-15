@@ -1,29 +1,24 @@
-@define-color critical #ff0000;
-@define-color warning #f3f809;
-@define-color fgcolor #ffffff;
-@define-color bgcolor #222436;
-@define-color bgcolor #222436;
+@define-color critical #ee5395;
+@define-color warning #3ddbd9;
+@define-color fgcolor #f2f4f8;
+@define-color bgcolor #161616;
 @define-color alert #df3320;
-
-/* @define-color accent1 #ff7a93; */
-/* @define-color accent2 #b9f27c; */
-/* @define-color accent3 #ff9e64; */
-/* @define-color accent4 #bb9af7; */
-/* @define-color accent5 #7da6ff; */
-/* @define-color accent6 #0db9d7; */
-@define-color accent1 #d79921;
-@define-color accent2 #458588;
-@define-color accent3 #d65d0e;
-@define-color accent4 #b16286;
-@define-color accent5 #689d6a;
-@define-color accent6 #98971a;
-@define-color waybarclr rgba(25, 25, 25, 0.02);
+@define-color accent1 #3ddbd9;
+@define-color accent2 #33b1ff;
+@define-color accent3 #ee5396;
+@define-color accent4 #42be65;
+@define-color accent5 #be95ff;
+@define-color accent6 #ff7eb6;
+@define-color waybarclr rgba(25, 25, 25, 0);
 
 * {
   font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
-  font-weight: bold;
+  /* font-family: "ProggyClean Nerd Font Propo", "Symbols Nerd Font", monospace; */
+  /* font-weight: bold; */
   min-height: 0px;
-  font-size: 98%;
+  /* font-size: 98%; */
+  font-size: 16px;
+  /* font-size: 20px; */
   padding: 1px;
 }
 
@@ -47,13 +42,16 @@ window#waybar.hidden {
 .modules-left,
 .modules-center,
 .modules-right {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
   padding-top: 2px;
   padding-bottom: 2px;
   padding-right: 4px;
   padding-left: 4px;
   border-radius: 10px;
-  margin: 4px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 /*
@@ -95,9 +93,9 @@ tooltip label {
 
 #workspaces button.active {
   background-color: transparent;
-  color: @accent1;
-  padding-left: 8px;
-  padding-right: 8px;
+  color: @accent2;
+  /* padding-left: 8px; */
+  /* padding-right: 8px; */
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
@@ -105,8 +103,8 @@ tooltip label {
 #workspaces button:hover {
   background: rgba(0, 0, 0, 0.2);
   color: @accent3;
-  padding-left: 2px;
-  padding-right: 2px;
+  /* padding-left: 2px; */
+  /* padding-right: 2px; */
   animation: gradient_f 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
@@ -220,7 +218,7 @@ label:focus {
 }
 
 #custom-menu {
-  color: #ffffff;
+  color: @accent2;
   /*padding: 3px;*/
 }
 
@@ -238,7 +236,7 @@ label:focus {
 }
 
 #bluetooth {
-  color: #1e66f5;
+  color: @;
 }
 
 #network {
@@ -274,7 +272,7 @@ label:focus {
 }
 
 #custom-power {
-  color: #cc3436;
+  color: @alert;
 }
 
 #disk {
