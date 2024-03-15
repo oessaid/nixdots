@@ -17,7 +17,7 @@ in {
         program = "zsh";
       };
       font = {
-        size = 12.5;
+        size = 11.0;
         normal.family = font;
         bold.family = font;
         italic.family = font;
