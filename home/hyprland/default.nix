@@ -130,8 +130,8 @@ in {
           "$mainMod, 9, workspace, 9"
           "$mainMod, 0, workspace, 10"
 
-          "$mainMod, I, workspace, r+1"
-          "$mainMod, U, workspace, r-1"
+          "$mainMod, I, workspace, m+1"
+          "$mainMod, U, workspace, m-1"
         ];
         bindm = [
           "$mainMod, mouse:272, movewindow"
