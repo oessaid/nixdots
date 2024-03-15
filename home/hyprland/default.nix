@@ -112,6 +112,7 @@ in {
           "$mainMod, Q, killactive"
 
           "$mainMod, S, exec, hyprshot -m region --clipboard-only"
+          "$mainMod, P, exec, hyprpicker --autocopy --format=hex"
 
           "$mainMod, h, movefocus, l"
           "$mainMod, j, movefocus, d"

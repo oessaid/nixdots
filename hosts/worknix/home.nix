@@ -52,6 +52,8 @@
 
       # screenshots
       hyprshot
+      # color picker
+      hyprpicker
 
       # XDG Desktop Portal
       xdg-desktop-portal-hyprland
