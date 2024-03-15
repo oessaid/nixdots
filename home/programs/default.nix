@@ -7,5 +7,6 @@
     ./utilities.nix
     ./git.nix
     ./zathura.nix
+    ./firefox.nix
   ];
 }
