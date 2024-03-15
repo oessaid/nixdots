@@ -49,5 +49,9 @@
     glxinfo
 
     pavucontrol
+
+    # display management
+    nwg-displays
+    wlr-randr
   ];
 }

@@ -38,9 +38,15 @@ in {
           # This was required to use the discrete Nvidia GPU
           "__NV_PRIME_RENDER_OFFLOAD,1"
           "WLR_RENDERER_ALLOW_SOFTWARE,1"
+          "WLR_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
+          # "WLR_DRM_DEVICES,/dev/dri/card1"
+          # toolkit-specific scale
+          "GDK_SCALE,2"
+          "XCURSOR_SIZE,32"
         ];
         exec-once = [
           "dunst"
+          "nm-applet --indicator & disown"
         ];
         exec = [
           "pkill waybar & sleep 0.5 && waybar"
@@ -54,6 +60,9 @@ in {
           "col.inactive_border" = "rgba(00000088)";
           layout = "dwindle";
           resize_on_border = true;
+        };
+        input = {
+          follow_mouse = 2;
         };
         dwindle = {
           pseudotile = true;
@@ -126,7 +135,16 @@ in {
       };
       extraConfig = ''
         # monitor setup
-        monitor=desc:LG Electronics LG TV SSCR2 0x01010101,3840x2160@120,auto,1.0,bitdepth,10,vrr,2
+        # commented out - handled through nwg-displays
+        # monitor=desc:LG Electronics LG TV SSCR2 0x01010101,3840x2160@60,auto,1.2,bitdepth,10,vrr,2
+        source = ~/.config/hypr/monitors.conf
+        source = ~/.config/hypr/workspaces.conf
+
+        # Handle closing lid of laptop
+        # trigger when the switch is turning on
+        bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+        # trigger when the switch is turning off
+        bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "desc:AU Optronics 0x4F9B ,2560x1600@60.039001,912x1800,2.0"
 
         # layout edit
         bind = $mainMod, RETURN, submap, layoutedit
