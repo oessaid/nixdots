@@ -41,6 +41,16 @@
     home.packages = with pkgs; [
       obsidian
       slack
+
+      # screen sharing
+      pipewire
+      wireplumber
+
+      # screenshots
+      hyprshot
+
+      # XDG Desktop Portal
+      xdg-desktop-portal-hyprland
     ];
   };
 }

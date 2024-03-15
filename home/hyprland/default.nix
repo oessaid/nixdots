@@ -43,6 +43,7 @@ in {
           # toolkit-specific scale
           "GDK_SCALE,2"
           "XCURSOR_SIZE,32"
+          "NIXOS_OZONE_WL,1"
         ];
         exec-once = [
           "dunst"
@@ -100,7 +101,7 @@ in {
             "workspaces, 1, 2, default, slide"
           ];
         };
-        "$mainMod" = "CTRL_ALT_SHIFT_WIN";
+        "$mainMod" = "CTRL_ALT_SHIFT_WIN"; # HYPER
         "$altMod" = "SUPER";
         bind = [
           "$mainMod, SPACE, exec, wofi --show drun"
@@ -108,6 +109,8 @@ in {
           "$mainMod, F, exec, firefox"
           "$mainMod, B, exec, alacritty -e fuzzy-zathura"
           "$mainMod, Q, killactive"
+
+          "$mainMod, S, exec, hyprshot -m region --clipboard-only"
 
           "$mainMod, h, movefocus, l"
           "$mainMod, j, movefocus, d"
@@ -142,7 +145,7 @@ in {
 
         # Handle closing lid of laptop
         # trigger when the switch is turning on
-        bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+        bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "monitor=desc:AU Optronics 0x4F9B ,disable"
         # trigger when the switch is turning off
         bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "desc:AU Optronics 0x4F9B ,2560x1600@60.039001,912x1800,2.0"
 
