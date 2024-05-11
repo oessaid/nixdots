@@ -30,7 +30,6 @@
       export VISUAL="nvim"
       export EDITOR="nvim"
       export GIT_EDITOR="nvim"
-      export NIX_SSL_CERT_FILE="/var/corpnet.crt"
       export PATH=$HOME/.local/bin:$PATH
 
       function yy() {

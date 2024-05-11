@@ -6,6 +6,9 @@
       fonts = [ "JetBrainsMono" "NerdFontsSymbolsOnly" "ProggyClean" ];
     })
 
+    # dev
+    cmakeWithGui
+
     # utils
     ripgrep # recursively searches directories for a regex pattern
     fd # a faster alternative to find

@@ -21,6 +21,9 @@ in {
       # screen brightness
       brightnessctl
 
+      # networking
+      networkmanagerapplet
+
       # XDG Desktop Portal
       # (nixGL xdg-desktop-portal)
       # (nixGL xdg-desktop-portal-hyprland)
@@ -40,8 +43,8 @@ in {
           outputs = [{
             criteria = "eDP-1";
             status = "enable";
-            scale = 1.6;
-            mode = "2560x1600@60Hz";
+            scale = 1.0;
+            mode = "1920x1080@60Hz";
           }];
         };
         home_office = {

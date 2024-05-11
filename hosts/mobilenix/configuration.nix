@@ -11,11 +11,7 @@
 # - modulesPath [NixOS only]: a path to `nixpkgs/nixos/modules`, used to import
 #    additional NixOS modules and can be found in most auto-generated
 #    `hardware-configuration.nix` files.
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -34,11 +30,11 @@
     };
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+      efiSysMountPoint = "/boot";
     };
   };
 
-  networking.hostName = "homenix"; # Define your hostname.
+  networking.hostName = "mobilenix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -91,7 +87,7 @@
     enable = true;
 
     # Load nvidia driver for Xorg and Wayland.
-    videoDrivers = ["nvidia"];
+    videoDrivers = [ "nvidia" ];
 
     # Enable the GNOME Desktop Environment.
     displayManager.gdm = {
@@ -130,9 +126,7 @@
 
   # Sound/Bluetooth
   hardware.bluetooth.settings = {
-    General = {
-      Enable = "Source,Sink,Media,Socket";
-    };
+    General = { Enable = "Source,Sink,Media,Socket"; };
   };
   services.blueman.enable = true;
 
@@ -152,12 +146,13 @@
   users.users.oessaid = {
     isNormalUser = true;
     description = "Omar Essaid";
-    extraGroups = ["networkmanager" "wheel" "video"];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      firefox
-      #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        firefox
+        #  thunderbird
+      ];
   };
 
   # Allow unfree packages
@@ -165,17 +160,15 @@
 
   nix.settings = {
     # Enable the Flakes feature and the accompanying new nix command-line tool
-    experimental-features = ["nix-command" "flakes"];
+    experimental-features = [ "nix-command" "flakes" ];
 
     # Cache setup
     # given the users in this list the right to specify additional substituters via:
     #    1. `nixConfig.substituters` in `flake.nix`
     #    2. command line args `--options substituters http://xxx`
-    trusted-users = ["oessaid"];
+    trusted-users = [ "oessaid" ];
 
-    substituters = [
-      "https://cache.nixos.org"
-    ];
+    substituters = [ "https://cache.nixos.org" ];
 
     trusted-public-keys = [
       # the default public key of cache.nixos.org, it's built-in, no need to add it here

@@ -100,7 +100,14 @@ in {
           follow_mouse = 2;
           kb_layout = "us,us";
           kb_variant = "basic,intl";
-          kb_options = "caps:backspace,grp:shifts_toggle";
+          kb_options = "caps:backspace,grp:shifts_toggle,altwin:swap_lalt_lwin";
+
+          touchpad = { clickfinger_behavior = false; };
+        };
+
+        device = {
+          name = "tpps/2-elan-trackpoint";
+          sensitivity = "+0.6";
         };
 
         dwindle = {
@@ -111,8 +118,8 @@ in {
         master = { orientation = "left"; };
 
         decoration = {
-          active_opacity = 0.9;
-          inactive_opacity = 0.9;
+          active_opacity = 0.8;
+          inactive_opacity = 0.8;
           rounding = 10;
           drop_shadow = true;
           shadow_range = 10;
